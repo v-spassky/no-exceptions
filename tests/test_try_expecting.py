@@ -31,7 +31,7 @@ def test_try_expecting_with_exception_instnace() -> None:
     assert isinstance(result._inner, AttributeError)
 
 
-def test_try_expecting_with_exception_instnace2() -> None:
+def test_try_expecting_with_exception_instnace_subclass() -> None:
     result = try_expecting(lambda: FloatingPointError(), ArithmeticError)
     assert result.is_ok
     assert isinstance(result._inner, FloatingPointError)

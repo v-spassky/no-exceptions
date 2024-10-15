@@ -1,20 +1,23 @@
-from typing import Callable, cast
+from typing import Callable, Generic, Optional, Tuple, Type, TypeVar, Union, cast
 
-type NoArgsClosure[RetType] = Callable[[], RetType]
+RetType = TypeVar("RetType")
+OkType = TypeVar("OkType")
+
+NoArgsClosure = Callable[[], RetType]
 """A type alias for a function that takes no arguments and returns a value of type `RetType`."""
 
 
-class Result[OkType]:
+class Result(Generic[OkType]):
     """Represents a result of an operation, containing either a success value or an error."""
 
-    def __init__(self, val: OkType | Exception, *, is_ok: bool) -> None:
+    def __init__(self, val: Union[OkType, Exception], *, is_ok: bool) -> None:
         """
         Initialize a new `Result` object.
 
         Args:
-            val (OkType | Exception): The value or exception to be stored in the result. If the result is successful,
-                this should be the success value (`OkType`). If the result contains an error, this should be an
-                `Exception` object.
+            val (Union[OkType, Exception]): The value or exception to be stored in the result. If the result is
+                successful, this should be the success value (`OkType`). If the result contains an error, this should be
+                an `Exception` object.
             is_ok (bool): A flag indicating whether the result represents success (`True`) or an error (`False`).
         """
         self._inner = val
@@ -50,13 +53,13 @@ class Result[OkType]:
         """
         return not self.is_ok
 
-    def unpack(self) -> tuple[bool, OkType | None]:
+    def unpack(self) -> Tuple[bool, Optional[OkType]]:
         """
         Unpack the result into a tuple indicating success and the associated value or `None`.
 
         Returns:
-            tuple[bool, OkType | None]: A tuple where the first element is a `bool` indicating success (`True`) or
-            failure (`False`), and the second element is the success value or `None`.
+            Optional[OkType]: A tuple where the first element is a `bool` indicating success (`True`) or failure
+                (`False`), and the second element is the success value or `None`.
 
         Example:
             >>> result = Result(42, is_ok=True)
@@ -123,7 +126,7 @@ class Result[OkType]:
         return f"Result({repr(self._inner)})"
 
 
-def try_expecting[RetType](closure: NoArgsClosure[RetType], expected_error: type[Exception]) -> Result[RetType]:
+def try_expecting(closure: NoArgsClosure[RetType], expected_error: Type[Exception]) -> Result[RetType]:
     """
     Execute a function and return a `Result` object, capturing any expected errors.
 
@@ -133,7 +136,7 @@ def try_expecting[RetType](closure: NoArgsClosure[RetType], expected_error: type
 
     Args:
         closure (NoArgsClosure[RetType]): A function that takes no arguments and returns a value of type `RetType`.
-        expected_error (type[Exception]): The exception type that should be caught and treated as an error.
+        expected_error (Type[Exception]): The exception type that should be caught and treated as an error.
 
     Returns:
         Result[RetType, Exception]: A `Result` object containing either the successful return value from `closure` or
