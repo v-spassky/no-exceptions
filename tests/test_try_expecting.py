@@ -1,5 +1,5 @@
 import pytest
-from src.no_exceptions import try_expecting
+from no_exceptions import try_expecting
 
 
 def test_try_expecting_success() -> None:
