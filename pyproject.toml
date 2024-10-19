@@ -11,8 +11,8 @@ classifiers = [
 authors = ["Vasiliy Spassky <spassky99@gmail.com>"]
 
 [tool.poetry.urls]
-Homepage = "https://github.com/spassky99/no-exceptions"
-Issues = "https://github.com/spassky99/no-exceptions/issues"
+Homepage = "https://github.com/v-spassky/no-exceptions"
+Issues = "https://github.com/v-spassky/no-exceptions/issues"
 
 [[tool.poetry.source]]
 name = "pypi-public"
