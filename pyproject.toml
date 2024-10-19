@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "no-exceptions"
 description = "Errors as values for Python."
-version = "0.1.0-dev1"
+version = "0.1.0-dev2"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3",
