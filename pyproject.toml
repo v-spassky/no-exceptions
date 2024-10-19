@@ -14,6 +14,10 @@ authors = ["Vasiliy Spassky <spassky99@gmail.com>"]
 Homepage = "https://github.com/spassky99/no-exceptions"
 Issues = "https://github.com/spassky99/no-exceptions/issues"
 
+[[tool.poetry.source]]
+name = "pypi-public"
+url = "https://pypi.org/simple/"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 
@@ -23,6 +27,7 @@ ruff = "^0.6.9"
 pytest = "^8.3.3"
 build = "^1.2.2.post1"
 poethepoet = "^0.29.0"
+twine = "^5.1.1"
 
 [build-system]
 requires = ["poetry-core"]
