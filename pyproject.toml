@@ -4,15 +4,27 @@ description = "Errors as values for Python."
 version = "0.1.0-dev2"
 readme = "README.md"
 classifiers = [
-    "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Typing :: Typed",
 ]
 authors = ["Vasiliy Spassky <spassky99@gmail.com>"]
+keywords = ["errors", "exceptions", "error handling", "exception handling"]
 
 [tool.poetry.urls]
 Homepage = "https://github.com/v-spassky/no-exceptions"
 Issues = "https://github.com/v-spassky/no-exceptions/issues"
+Repository = "https://github.com/v-spassky/no-exceptions.git"
 
 [[tool.poetry.source]]
 name = "pypi-public"
