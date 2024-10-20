@@ -25,8 +25,8 @@ jobs:
     - name: Install dependencies
       run: poetry install
     - name: Lint
-      run: poe lint
+      run: poetry run poe lint
     - name: Typecheck
-      run: poe typecheck
+      run: poetry run poe typecheck
     - name: Test
-      run: poe test
+      run: poetry run poe test
