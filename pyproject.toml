@@ -40,6 +40,7 @@ pytest = "^8.3.3"
 build = "^1.2.2.post1"
 poethepoet = "^0.29.0"
 twine = "^5.1.1"
+pytest-cov = "^5.0.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -51,6 +52,7 @@ line-length = 120
 [tool.poe.tasks]
 lint = "ruff check ."
 typecheck = "mypy ."
-test = "pytest ."
+test = "pytest --cov=src --cov-report term-missing ."
 build = "python3 -m build"
 check-all = ["lint", "typecheck", "test"]
+show-coverage = "coverage html"

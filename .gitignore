@@ -3,4 +3,7 @@ __pycache__/
 /.pytest_cache
 /.ruff_cache
 /.vscode
+/cov_html
 /dist
+/htmlcov
+.coverage
