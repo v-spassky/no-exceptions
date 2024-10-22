@@ -25,13 +25,13 @@ def test_try_expecting_failure() -> None:
     assert result.unpack() == (False, None)
 
 
-def test_try_expecting_with_exception_instnace() -> None:
+def test_try_expecting_with_exception_instance() -> None:
     result = try_expecting(lambda: AttributeError(), ZeroDivisionError)
     assert result.is_ok
     assert isinstance(result._inner, AttributeError)
 
 
-def test_try_expecting_with_exception_instnace_subclass() -> None:
+def test_try_expecting_with_exception_instance_subclass() -> None:
     result = try_expecting(lambda: FloatingPointError(), ArithmeticError)
     assert result.is_ok
     assert isinstance(result._inner, FloatingPointError)
